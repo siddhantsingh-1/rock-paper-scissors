@@ -3,90 +3,48 @@
 
 <head>
     <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Console Demo</title>
 </head>
 
 <body>
-    <h1>Hello, World!</h1>
-    <script>
-        //   Rock Paper scissors
-        function computerPlay() {
-            let choice = Math.floor(Math.random() * 3);
-            switch (choice) {
-                case 0: return 'rock';
-                    break;
-                case 1: return 'paper';
-                    break;
-                case 2: return 'scissors';
-                    break;
-            }
-        }
-
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return 'It\'s a tie';
-            }
-            else if (playerSelection === 'rock') {
-                if (computerSelection === 'paper') {
-                    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-                    return 'computer';
-                }
-                else {
-                    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-                    return 'player';
-                }
-            }
-            else if (playerSelection === 'paper') {
-                if (computerSelection === 'rock') {
-                    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-                    return 'player';
-                }
-                else {
-                    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-                    return 'computer';
-                }
-            }
-            else if (playerSelection === 'scissors') {
-                if (computerSelection === 'rock') {
-                    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
-                    return 'computer';
-                }
-                else {
-                    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
-                    return 'player';
-                }
-            }
-        }
-
-        function game() {
-            let playerScore = 0, computerScore = 0;
-            for (let i = 0; i < 5; i++) {
-                let playerSelection = prompt("Enter your choice");
-                playerSelection = playerSelection.toLowerCase();
-                computerSelection = computerPlay();
-
-                // Playing round
-                let roundWinner = playRound(playerSelection, computerSelection);
-                if (roundWinner === 'player') {
-                    playerScore++;
-                }
-                else {
-                    computerScore++;
-                }
-
-                if (playerScore == 3 || computerScore == 3) {
-                    break;
-                }
-            }
-            if (playerScore == 3) {
-                console.log('You Win the game! Your final score is: 3');
-            } else {
-                console.log(`You Lose the game! Your final score is: ${playerScore}`);
-            }
-        }
-
-        game();
-    </script>
+    <header>
+        <h1 class="header">Rock Paper Scissors</h1>
+        <h2 class="header">First to 5 wins!</h2>
+    </header>
+    <div class="players-container flex">
+        <div class="user player">
+            <h1 class="player-heading">User</h1>
+            <div class="score-and-options grid">
+                <h3 class="score">Score: <span class="user-score">0</span></h3>
+                <figure class="rock player-option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand-rock.png" />
+                </figure>
+                <figure class="paper player-option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand.png" />
+                </figure>
+                <figure class="scissors player-option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand-scissors--v1.png" />
+                </figure>
+            </div>
+        </div>
+        <div class="computer player">
+            <h1 class="player-heading">Computer</h1>
+            <div class="score-and-options grid">
+                <h3 class="score">Score: <span class="computer-score">0</span></h3>
+                <figure class="rock option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand-rock.png" />
+                </figure>
+                <figure class="paper option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand.png" />
+                </figure>
+                <figure class="scissors option">
+                    <img src="https://img.icons8.com/ios/50/000000/hand-scissors--v1.png" />
+                </figure>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
