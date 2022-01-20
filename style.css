@@ -30,10 +30,38 @@ header h2 {
 }
 
 .players-container {
+	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: space-between;
 	width: 1000px;
 	margin: 0 auto;
+}
+
+@media only screen and (max-width: 1000px) {
+	.players-container {
+		width: 400px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+
+	.player {
+		transform: scale(0.9);
+		padding-left: 8px !important;
+	}
+
+	button {
+		width: 200px !important;
+		margin-top: -30px !important;
+	}
+	button .btn {
+		font-size: 28px;
+		text-transform: uppercase;
+		letter-spacing: 10px;
+		font-weight: 700;
+	}
 }
 
 .player {
